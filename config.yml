@@ -1,0 +1,63 @@
+server:
+  rootPath: /api/
+
+logging:
+  level: INFO
+  loggers:
+    com.github.stantonk: DEBUG
+
+#metrics:
+#  reporters:
+#    - type: graphite
+#      durationUnit: milliseconds
+#      rateUnit: seconds
+#      useRegexFilters: false
+#      # set this to 1 minute (or longer) in production; dropwizard-metrics handles pre-aggregation
+#      # rendering statsd unnecessary -- provided you don't abuse graphite by sending too frequently
+#      frequency: 5 seconds
+#      port: 20003
+#      prefix: demoservice
+
+# how to do environment variables
+# mySetting: ${DW_MY_SETTING}
+# defaultSetting: ${DW_DEFAULT_SETTING:-default value}
+
+database:
+  # the name of your JDBC driver
+  driverClass: com.mysql.cj.jdbc.Driver
+
+  user: app
+  password: app
+  url: jdbc:mysql://${DB_IP:-localhost}:3306/app
+
+  # any properties specific to your JDBC driver:
+  properties:
+    charSet: UTF-8
+
+  # the maximum amount of time to wait on an empty pool before throwing an exception
+  maxWaitForConnection: 1s
+
+  # the SQL query to run when validating a connection's liveness
+  validationQuery: "/* MyService Health Check */ SELECT 1"
+
+  # the timeout before a connection validation queries fail
+  validationQueryTimeout: 3s
+
+  # the minimum number of connections to keep open
+  minSize: 8
+
+  # the maximum number of connections to keep open
+  maxSize: 32
+
+  # whether or not idle connections should be validated
+  checkConnectionWhileIdle: false
+
+  # the amount of time to sleep between runs of the idle connection validation, abandoned cleaner and idle pool resizing
+  evictionInterval: 10s
+
+  # the minimum amount of time an connection must sit idle in the pool before it is eligible for eviction
+  minIdleTime: 1 minute
+
+  # validate a SQL connection is viable before borrowing from the pool
+  # this is rather *critical* if you want your service to recover loss of connectivity to the db
+  checkConnectionOnBorrow: true

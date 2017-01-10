@@ -1,0 +1,17 @@
+version: '2'
+services:
+  db:
+    image: library/mysql:5.5.54
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=app
+      - MYSQL_USER=app
+      - MYSQL_PASSWORD=app
+    ports:
+      - "3306:3306"
+  app:
+    environment:
+      - DB_IP=db
+    image: app
+    ports:
+      - "8080:8080"
