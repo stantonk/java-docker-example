@@ -94,3 +94,8 @@ one giant resource to stack containers onto.
 2. Bootstrap the service's DB schema for MySQL as part of build process
 3. Logging/Config Mgmt examples...
 4. *start* the service's `Dockerfile` from an already ready to go Java8 image to significantly cut down on initial build time?
+
+# Resources
+
+I didn't necessarily follow any of these... :)
+https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
