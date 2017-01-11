@@ -34,7 +34,7 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
 docker build --tag app .
 ```
 
-Now you have the Dropwizard service in a container, ready to start up
+Now you have the Dropwizard service in a container, we're ready to start up the whole "system"
 with `docker-compose`. Since the Dropwizard service requires a MySQL
 database as it's persistence layer, `docker-compose.yml` sets up
 two containers, one running the Dropwizard service's image, and another
@@ -79,11 +79,12 @@ I don't necessarily recommend running MySQL (or any persistence) in Docker,
 I'm not convinced of the benefits there as of yet. But for services the
 arguments are compelling, e.g.:
 
+* Decoupling applications from their environment, making config mgmt less difficult by enabling
+developers to manage configs vs. creating a human-level bottleneck and divider between Dev and Ops.
+  * avoiding the confusion/debate over "where does config live", maybe, through Docker + ENVVARS?
 * combining Docker with Kubernets or Mesos gives you relatively cheap High Availability, both intra and inter Data
 Center while making it possible to keep server costs down by treating a set of servers as
 one giant resource to stack containers onto.
-* Decoupling applications from their environment, making config mgmt less difficult by enabling
-developers to manage configs vs. creating a human-level bottleneck and divider between Dev and Ops.
 
 #TODO
 1. Make the service actually do something
