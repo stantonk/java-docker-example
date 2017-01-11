@@ -1,3 +1,24 @@
+#Overview
+
+What is this?
+
+A tutorial on Docker for Java developers. The goal is to explore the use of Docker in the context of Java services, by
+progressively adding various MUST's and WANT's for building Production quality services in Docker.
+
+I haven't fully fleshed out yet how Docker fits in with my mental model of modern applications at scale. Concerns I wish
+to address are things such as:
+
+* Configuration Mangaement
+* Horizontal Scalability
+* Logging, Monitoring
+* Deployment
+* Continuous Integration
+* Environments
+* Unit/Integration Testing
+* Minimizing Impedance Mismatches between Prod/Stage/Dev/LocalDev environments
+
+# Getting Started
+
 Build the Dropwizard Java REST service:
 
 ```
