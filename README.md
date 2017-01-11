@@ -8,6 +8,9 @@ progressively adding various MUST's and WANT's for building Production quality s
 I haven't fully fleshed out yet how Docker fits in with my mental model of modern applications at scale. Concerns I wish
 to address are things such as:
 
+* ~~Java REST API working in Docker~~
+* ~~Java REST API talking to MySQL container locally~~
+* Demo more service components, e.g. maybe MemCached, Graphite
 * Configuration Mangaement
 * Horizontal Scalability
 * Logging, Monitoring
